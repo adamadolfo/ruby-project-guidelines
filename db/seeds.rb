@@ -1,0 +1,31 @@
+adam = User.find_or_create_by(name: "Adam Adolfo", age: 24)
+ahmed = User.find_or_create_by(name: "Ahmed Abboud", age: 31)
+
+# city, mascot, color, UserID
+kaptains = Team.find_or_create_by("San Fransisco", "Kaptains", "Gold", 2)
+dealers = Team.find_or_create_by("Miami", "Dealers", "Green", 2)
+iron ogres = Team.find_or_create_by("Pittsburgh", "Iron Ogres", "Silver", 1)
+blue_eyes = Team.find_or_create_by("Domino City", "Blue-Eyes", "White", 1)
+monarchs = Team.find_or_create_by("London", "Monarchs", "Royal Purple", 1)
+scarfaces = Team.find_or_create_by("Montana", "Scarfaces", "Blood Red", 2)
+
+# name, number, position, points, rebounds, assists, steals team
+
+frederickKaiser = Player.find_or_create_by("Frederick Kaiser", 1, "G", 32, 5, 1, 4, 1)
+nabeelSparks  = Player.find_or_create_by("Nabeel Sparks", 2, "F", 22, 4, 5, 1, 1)
+raidenDalton  = Player.find_or_create_by("Raiden Dalton", 3, "C", 3, 5, 20, 6, 1)
+elmerYoder  = Player.find_or_create_by("Elmer Yoder", 4, "C", 25, 3, 2, 6, 2)
+denzelColes  = Player.find_or_create_by("Denzel Coles", 5, "G", 16, 16, 6, 1, 2) 
+kingaKing  = Player.find_or_create_by("Kinga King", 6, "F", 16, 6, 6, 2, 2)
+kaiserJackson  = Player.find_or_create_by("Kaiser Jackson", 7, "F", 39, 3, 2, 1, 3)
+montyWhitehouse  = Player.find_or_create_by("Monty Whitehouse", 8, "G", 31, 6, 7, 2, 3)
+arbaazBurton  = Player.find_or_create_by("Arbaaz Burton", 9, "C", 37, 11, 2, 0, 3)
+angusParks  = Player.find_or_create_by("Angus Parks", 10, "G", 20, 5, 2, 9, 4)
+zakirWhiteley  = Player.find_or_create_by("Zakir Whiteley", 11, "C", 10, 10, 1, 0, 4)
+garfieldHowarth  = Player.find_or_create_by("Garfield Howarth", 12, "F", 23, 4, 4, 2, 4)
+devTraynor  = Player.find_or_create_by("Dev Traynor", 13, "C", 1, 20, 0, 0, 5)
+johnOrtiz  = Player.find_or_create_by("John Ortiz", 14, "G", 27, 0, 10, 4, 5)
+saqlainMclean  = Player.find_or_create_by("Saqlain Mclean", 15, "F", 40, 11, 7, 5, 5)
+riverSchmidt  = Player.find_or_create_by("River Schmidt", 16, "G", 28, 3, 15, 8, 6)
+murtazaHooper  = Player.find_or_create_by("Murtaza Hooper", 17, "C", 12, 14, 8, 1, 6)
+peteBones = Player.find_or_create_by("Pete Bones", 18, "F", 55, 0, 0, 0, 6)
