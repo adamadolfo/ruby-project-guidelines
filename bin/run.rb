@@ -1,5 +1,5 @@
 require_relative '../config/environment'
-require_relative './lib'
+require_relative '../lib'
 
 
 

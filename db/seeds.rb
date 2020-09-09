@@ -1,13 +1,21 @@
+Player.destroy_all
+Team.destroy_all
+User.destroy_all
+
 adam = User.find_or_create_by(name: "Adam Adolfo", age: 24)
 ahmed = User.find_or_create_by(name: "Ahmed Abboud", age: 31)
+james = User.find_or_create_by(name: "James the Giant", age: 35)
+victoria = User.find_or_create_by(name: "Vicy the vixen", age: 21)
+kim = User.find_or_create_by(name: "Kimbo Slice", age: 41)
+karim = User.find_or_create_by(name: "Karim", age: 18)
 
 # city, mascot, color, UserID
 kaptains = Team.find_or_create_by(city: "San Fransisco", mascot: "Kaptains", color: "Gold", user_id: 2)
-dealers = Team.find_or_create_by(city: "Miami", mascot: "Dealers", color: "Green", user_id: 2)
-iron_ogres = Team.find_or_create_by(city: "Pittsburgh", mascot: "Iron Ogres", color: "Silver", user_id: 1)
-blue_eyes = Team.find_or_create_by(city: "Domino City", mascot: "Blue-Eyes", color: "White", user_id: 1)
-monarchs = Team.find_or_create_by(city: "London", mascot: "Monarchs", color: "Royal Purple", user_id: 1)
-scarfaces = Team.find_or_create_by(city: "Montana", mascot: "Scarfaces", color: "Blood Red", user_id: 2)
+dealers = Team.find_or_create_by(city: "Miami", mascot: "Dealers", color: "Green", user_id: 3)
+iron_ogres = Team.find_or_create_by(city: "Pittsburgh", mascot: "Iron Ogres", color: "Silver", user_id: 6)
+blue_eyes = Team.find_or_create_by(city: "Domino City", mascot: "Blue-Eyes", color: "White", user_id: 4)
+monarchs = Team.find_or_create_by(city: "London", mascot: "Monarchs", color: "Royal Purple", user_id: 5)
+scarfaces = Team.find_or_create_by(city: "Montana", mascot: "Scarfaces", color: "Blood Red", user_id: 1)
 
 # name, number:, position:, points:, rebounds:, assists:, steals: team:
 
