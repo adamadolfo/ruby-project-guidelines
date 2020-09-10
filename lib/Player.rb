@@ -3,12 +3,17 @@ class Player < ActiveRecord::Base
     #building relationships
     belongs_to :team
 
+    def self.find_player_by_index(int)
+        Player.all[int - 1] 
+    end
+
 
     def self.player_list
         Player.all.each_with_index do |player, index|
             # binding.pry
             puts "#{index + 1}: #{player.name}"
         end
+
     end
 
     # def create_user(name)
