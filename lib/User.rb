@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+    require 'pry'
     
     has_many :teams
     has_many :players, through: :teams
@@ -53,20 +54,29 @@ class User < ActiveRecord::Base
         puts "Your team's total assists are: #{team_total_assist_stats}"
         puts "Your team's total steals are: #{team_total_steals_stats}"
     end
+                       # angus parks pete bones
+    def trade_players(player, aquiring_player)
+        if self.players.include?(player) && !self.players.include?(aquiring_player)
+        owners_team_id 4 = player.team_id 4
+        player.team_id 6 = aquiring_player.team_id 6
+        aquiring player.team_id 4 = owners_team_id 4
+        else 
+            puts "These players cannot be traded."
+        end
+    end
 
-    # Moveing_players --> change a players team_id to another 
-    #                     by looking at team_id and reasigning 
-    # def add_players(player)
-    #     if self.players.include?(player)
-    #         puts "You already have this player!"
-    #     else
-    #         self.players.push(player)
-    #         player.all.find do |p|
-    #             p == player
-    #         end.team_id = self.id
-    #     end
-    # end
-
-
-
+    def find_leader_in_stats(stat)
+        if stat.downcase == "points"
+            Player.all.max_by { |player| player.points }.name
+        elsif stat.downcase == "rebounds"
+            Player.all.max_by { |player| player.rebounds }.name
+        elsif stat.downcase == "assists"
+            Player.all.max_by { |player| player.assists }.name
+        elsif stat.downcase == "steals"
+            Player.all.max_by { |player| player.steals }.name
+        else
+            puts "please enter a valid stat. \npoints\nrebounds\nassists\nsteals"
+        end
+    end
 end
+
