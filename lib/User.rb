@@ -57,9 +57,9 @@ class User < ActiveRecord::Base
                        # angus parks pete bones
     def trade_players(player, aquiring_player)
         if self.players.include?(player) && !self.players.include?(aquiring_player)
-        owners_team_id 4 = player.team_id 4
-        player.team_id 6 = aquiring_player.team_id 6
-        aquiring player.team_id 4 = owners_team_id 4
+        owners_team_id = player.team_id 
+        player.team_id = aquiring_player.team_id 
+        aquiring player.team_id = owners_team_id 
         else 
             puts "These players cannot be traded."
         end
