@@ -2,15 +2,36 @@ class Player < ActiveRecord::Base
     
     #building relationships
     belongs_to :team
+    
+
+    def find_players_names(array)
+        array.each do |element|
+           puts element.name
+        end
+    end
 
     def self.find_player_by_index(int)
         Player.all[int - 1] 
     end
 
+    ##make a new column boss t/f make an array of all players that are f 
+    ##subsitute player.all for new array
+
+    # def self.list_of_boss
+    #     Player.all.select do |player|
+    #         player.is_boss
+    #     end
+    # end
+
+    def self.list_of_available_p
+        Player.all.select do |player|
+            !player.is_boss
+        end
+    end
+
 
     def self.player_list
-        Player.all.each_with_index do |player, index|
-            # binding.pry
+        self.list_of_available_p.each_with_index do |player, index|
             puts "#{index + 1}: #{player.name}"
         end
 
@@ -44,4 +65,15 @@ class Player < ActiveRecord::Base
     # end
 
 
+end
+def find_players_names(array)
+    array.each do |element|
+       puts element.name
+    end
+end
+
+def reassign_team_id(array, team)
+    array.map do |element|
+        element.update(team_id: team.id)
+    end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_09_163328) do
+ActiveRecord::Schema.define(version: 2020_09_11_161306) do
 
   create_table "Players", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_09_09_163328) do
     t.integer "assists"
     t.integer "steals"
     t.integer "team_id"
+    t.boolean "is_boss"
   end
 
   create_table "Teams", force: :cascade do |t|

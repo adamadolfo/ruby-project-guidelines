@@ -4,6 +4,15 @@ class User < ActiveRecord::Base
     has_many :teams
     has_many :players, through: :teams
 
+    def find_boss_points(boss)
+        points_total = 0
+        boss.players.map do |player|
+            points_total += player.points
+        end
+       puts points_total
+    end
+
+
     def self.teams
         Team.all.select do |team|
             Team.user_id == self.id
@@ -67,13 +76,13 @@ class User < ActiveRecord::Base
 
     def find_leader_in_stats(stat)
         if stat.downcase == "points"
-            Player.all.max_by { |player| player.points }.name
+           puts Player.all.max_by { |player| player.points }.name
         elsif stat.downcase == "rebounds"
-            Player.all.max_by { |player| player.rebounds }.name
+           puts Player.all.max_by { |player| player.rebounds }.name
         elsif stat.downcase == "assists"
-            Player.all.max_by { |player| player.assists }.name
+           puts Player.all.max_by { |player| player.assists }.name
         elsif stat.downcase == "steals"
-            Player.all.max_by { |player| player.steals }.name
+           puts Player.all.max_by { |player| player.steals }.name
         else
             puts "please enter a valid stat. \npoints\nrebounds\nassists\nsteals"
         end

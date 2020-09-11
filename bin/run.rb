@@ -41,7 +41,7 @@ def team_creator(user)
         puts "Choose your teams color"
         color_resp = gets.chomp
 
-        team = Team.find_or_create_by(city: city_resp, mascot: mascot_resp, color: color_resp, user_id: user)
+        team = Team.find_or_create_by(city: city_resp, mascot: mascot_resp, color: color_resp, user_id: user.id)
         
     elsif start_customize_resp == 'N'
         team_creator(user)
@@ -58,81 +58,73 @@ def pick_players(team)
         pick_players(team)
     elsif start_pick_resp == 'Y'
         players_on_team = []
+        counter = 1
         puts "Here is the list of players to choose from, please select the number associated with the player."
         Player.player_list
-            puts "Choose your first player"
+        while counter < 4
+            puts "Choose your player #{counter}"
             player_choice_1 = gets.chomp
-            players_on_team << player_choice_1
-            puts "Choose another player"
-            player_choice_2 = gets.chomp
-            if players_on_team.include?(player_choice_2)
-                puts "please select a different player."
-                pick_players(team)
-            else
-                players_on_team << player_choice_2
+            player1 = player_choice_1.to_i
+            final_player = Player.find_player_by_index(player1)
+            while players_on_team.include?(final_player)
+                puts "please select a different player #{counter}."
+                player_choice_1 = gets.chomp
+                player1 = player_choice_1.to_i
+                final_player = Player.find_player_by_index(player1)   
             end
-            puts "Choose your final player"
-            player_choice_3 = gets.chomp
-            if players_on_team.include?(player_choice_3)
-                puts "please select a different player."
-                pick_players(team)
-            else
-                players_on_team << player_choice_3
-            end
-            player1 = players_on_team[0].to_i
-            player2 = players_on_team[1].to_i
-            player3 = players_on_team[2].to_i
-            final_player1 = Player.find_player_by_index(player1)
-            final_player2 = Player.find_player_by_index(player2)
-            final_player3 = Player.find_player_by_index(player3)
-            
+            players_on_team << final_player
+            counter += 1
         end 
-        final_player1.team_id = team
-        puts "Here is your team!"
-        puts final_player1.name , final_player2.name, final_player3.name
+          
+    end  
+    reassign_team_id(players_on_team, team)
+    puts "These are your players"
+    find_players_names(players_on_team)
+    end
+ 
+    def fun_stuff(user, boss)
+        puts "Are you ready to see how well you did? (Y/N?)"
+        all_stats_resp = gets.chomp.upcase
+        if all_stats_resp == "Y"
+            user.all_stats
+        else
+            puts "lets continue"
+        end
+        puts "Do you think you can defeat THE final boss? (Y/N)"
+        final_boss_response = gets.chomp.upcase
+        if final_boss_response == "Y"
+            puts "This world is full of things that don't go as you wish."
+                    #final boss time
+        else
+            puts "You’ll have the rest of your entire life to brood over this defeat"
+                    #final boss time
+        end
+         "would you like to see the leading players in a stat? (Y/N?)"
+        stat_resp = gets.chomp.upcase
+        if stat_resp == "Y"
+            puts "What stat would you like to see the leader in? Please select from:\nPoints:\nRebounds:\nAssists:\nSteals:"
+            stat = gets.chomp.downcase
+            if stat == "points" || stat == "rebounds" || stat == "assists" || stat == "steals"
+                user.find_leader_in_stats(stat)
+            else
+                puts "let's continue"
+            end
+        end
+        
     end
 
-
-            
-            #     if player_choice_3 == player_choice_2 && player_choice_3 == player_choice_1
-            #         puts "Please choose different player."
-            #     elsif
-            #         puts "Your team is complete"
-            #     end
-
-   
-            
-
-
-
-
-
-
-
-
-# def create_user(name)
-#     current_user = User.find_or_create_by(name: name)
-#     players = Player.all 
-
-#     puts 'Choose a player to add to your team (by number'
-#     players.each {|player, index|
-#         puts "#{index + 1}: #{player}"
-#     }
-#     player_resp = gets.chomp 
-
-#     selected_player = players[player_resp - 1]
-
-# end
 def run
     user = start
     team = team_creator(user)
     players = pick_players(team)
+    boss = User.find_by(name: "Boss")
+    
+    fun_stuff(user, boss)
+    
 
 end
 
+
 run
-
-
-
 
 
