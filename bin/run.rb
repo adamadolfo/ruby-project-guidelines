@@ -100,6 +100,7 @@ def pick_players(team)
             puts "******************************************************"
                     #final boss time
                     boss.boss_stats(boss)
+                    user.final_battle(user, boss)
         else
             puts "THE Boss: 'Running away was never an option!'"
             puts "THE Boss: 'You’ll have the rest of your entire life to brood over this defeat.'"
@@ -108,6 +109,7 @@ def pick_players(team)
             puts "******************************************************"
                     #final boss time
                     boss.boss_stats(boss)
+                    user.final_battle(user, boss)
         end
         puts "would you like to see the leading players in a stat? (Y/N?)"
         stat_resp = gets.chomp.upcase
@@ -128,8 +130,8 @@ def run
     team = team_creator(user)
     players = pick_players(team)
     boss = User.find_by(name: "Boss")
-    
     fun_stuff(user, boss)
+    puts "thank you for playing our game. Thanks to Paul, Shannon and Matteo for the help.\nMade with love by Adam and Ahmed!"
     
 
 end

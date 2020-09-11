@@ -5,8 +5,22 @@ class User < ActiveRecord::Base
     has_many :players, through: :teams
 
     def final_battle(user, boss)
-    
+        array = []
+          x = boss.find_boss_points(boss) >= user.team_total_points_stats
+            array << x
+            y = boss.find_boss_rebounds(boss) >= user.team_total_rebounds_stats
+             array << y
+             z = boss.find_boss_assists(boss) >= user.team_total_assist_stats
+            array << z
+             n = boss.find_boss_steals(boss) >= user.team_total_steals_stats
+             array << n
+        if array.count(false) >= 3
+            puts "WOW I CAN'T BELIEVE YOU WON! NO ONE ELSE COULD BEAT THE BOSS! YOU ARE THE COOLEST!"
+        else 
+            puts "THE Boss: 'welcome to the end of your life. And I promise it's going to hurt'"
+        end
     end
+
 
     def find_boss_points(boss)
         points_total = 0
