@@ -40,5 +40,5 @@ murtazaHooper  = Player.find_or_create_by(name: "Murtaza Hooper",number: 17, pos
 peteBones = Player.find_or_create_by(name: "Pete Bones",number: 18, position: "F", points: 55, rebounds: 0, assists: 0, steals: 0, team_id: nil, is_boss: false)
 ### boss players
 jesusShuttlesworth = Player.find_or_create_by(name: "Jesus Shuttlesworth",number: 34, position: "F", points: 30, rebounds: 4, assists: 6, steals: 5, team_id: hopeless.id, is_boss: true)
-michaelJordan = Player.find_or_create_by(name: "Michael Jordan",number: 23, position: "F", points: 50, rebounds: 3, assists: 2, steals: 1, team_id: hopeless.id, is_boss: true)
-lolaBunny = Player.find_or_create_by(name: "Lola Bunny",number: 99, position: "C", points: 30, rebounds: 5, assists: 10, steals: 4, team_id: hopeless.id, is_boss: true)
+michaelJordan = Player.find_or_create_by(name: "Michael Jordan",number: 23, position: "F", points: 50, rebounds: 4, assists: 2, steals: 1, team_id: hopeless.id, is_boss: true)
+lolaBunny = Player.find_or_create_by(name: "Lola Bunny",number: 99, position: "C", points: 30, rebounds: 6, assists: 10, steals: 4, team_id: hopeless.id, is_boss: true)

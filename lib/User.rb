@@ -4,13 +4,45 @@ class User < ActiveRecord::Base
     has_many :teams
     has_many :players, through: :teams
 
+    def final_battle(user, boss)
+    
+    end
+
     def find_boss_points(boss)
         points_total = 0
         boss.players.map do |player|
             points_total += player.points
         end
-       puts points_total
+        points_total
     end
+    def find_boss_rebounds(boss)
+        rebounds_total = 0
+        boss.players.map do |player|
+            rebounds_total += player.rebounds
+        end
+        rebounds_total
+    end
+    def find_boss_assists(boss)
+        points_total = 0
+        boss.players.map do |player|
+            points_total += player.assists
+        end
+        points_total
+    end
+    def find_boss_steals(boss)
+        points_total = 0
+        boss.players.map do |player|
+            points_total += player.steals
+        end
+        points_total
+    end
+    def boss_stats(boss)
+        puts "The Boss's total points are: #{find_boss_points(boss)}"
+        puts "The Boss's total rebounds are: #{find_boss_rebounds(boss)}"
+        puts "The Boss's total assists are: #{find_boss_assists(boss)}"
+        puts "The Boss's total steals are: #{find_boss_steals(boss)}"
+    end
+
 
 
     def self.teams

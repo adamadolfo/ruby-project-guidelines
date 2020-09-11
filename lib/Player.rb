@@ -77,3 +77,5 @@ def reassign_team_id(array, team)
         element.update(team_id: team.id)
     end
 end
+
+

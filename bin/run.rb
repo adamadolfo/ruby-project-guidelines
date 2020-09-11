@@ -3,7 +3,7 @@ require 'require_all'
 require_all('lib')
 
 def start
-    puts 'Welcome to Basketball Simulator!'
+    puts 'Welcome to BasketballHero!'
     puts "What's your user name?"
     user_name = gets.chomp
     puts "So your name is #{user_name}? Is that Correct? (Y/N) or any other key to exit"
@@ -27,6 +27,7 @@ def start
     else
         puts "Thanks for playing"
     end
+    puts "In BasketballHero you will customize your own team and select from our pool of very talented players!\nIn this world THE Boss is terrorizing civilians with anime villain lines and his undefeated basketball team.\nA few heros have created teams and challenged THE Boss but they were never heard from again!\nBuild a team of brave players and try to beat THE Boss in 3 out of 4 categories"
     user
 end
 
@@ -93,13 +94,22 @@ def pick_players(team)
         puts "Do you think you can defeat THE final boss? (Y/N)"
         final_boss_response = gets.chomp.upcase
         if final_boss_response == "Y"
-            puts "This world is full of things that don't go as you wish."
+            puts "THE Boss: 'This world is full of things that don't go as you wish.'"
+            puts "******************************************************"
+            puts "******************************************************"
+            puts "******************************************************"
                     #final boss time
+                    boss.boss_stats(boss)
         else
-            puts "You’ll have the rest of your entire life to brood over this defeat"
+            puts "THE Boss: 'Running away was never an option!'"
+            puts "THE Boss: 'You’ll have the rest of your entire life to brood over this defeat.'"
+            puts "******************************************************"
+            puts "******************************************************"
+            puts "******************************************************"
                     #final boss time
+                    boss.boss_stats(boss)
         end
-         "would you like to see the leading players in a stat? (Y/N?)"
+        puts "would you like to see the leading players in a stat? (Y/N?)"
         stat_resp = gets.chomp.upcase
         if stat_resp == "Y"
             puts "What stat would you like to see the leader in? Please select from:\nPoints:\nRebounds:\nAssists:\nSteals:"
@@ -126,5 +136,3 @@ end
 
 
 run
-
-
